@@ -1,16 +1,8 @@
 {
 	"folders": [
 		{
-			"name": "public",
-			"path": "../Downloads/prepwise_public/prepwise_public/public"
-		},
-		{
 			"name": "interview_plateform",
 			"path": "."
-		},
-		{
-			"name": "types",
-			"path": "../Downloads/prepwise_public/prepwise_public/types"
 		}
 	],
 	"settings": {}
