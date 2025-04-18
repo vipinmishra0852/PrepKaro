@@ -26,27 +26,33 @@ const InterviewDetails = async ({ params }: RouteParams) => {
 
   return (
     <>
-      <div className="flex flex-row gap-4 justify-between">
-        <div className="flex flex-row gap-4 items-center max-sm:flex-col">
-          <div className="flex flex-row gap-4 items-center">
+      <div className="flex flex-row gap-6 justify-between py-8 px-5 bg-gradient-to-br from-blue-400 via-purple-400 to-teal-400 rounded-xl shadow-lg mb-8">
+        <div className="flex flex-row gap-6 items-center max-sm:flex-col">
+          {/* Interview Info */}
+          <div className="flex flex-row gap-6 items-center">
             <Image
               src={getRandomInterviewCover()}
               alt="cover-image"
-              width={40}
-              height={40}
-              className="rounded-full object-cover size-[40px]"
+              width={50}
+              height={50}
+              className="rounded-full object-cover size-[50px] transition-transform duration-300 transform hover:scale-105"
             />
-            <h3 className="capitalize">{interview.role} Interview</h3>
+            <h3 className="text-2xl font-extrabold text-white capitalize">
+              {interview.role} Interview
+            </h3>
           </div>
 
+          {/* Tech Stack Icons */}
           <DisplayTechIcons techStack={interview.techstack} />
         </div>
 
-        <p className="bg-dark-200 px-4 py-2 rounded-lg h-fit">
+        {/* Interview Type Badge */}
+        <p className="bg-yellow-400 px-5 py-2 rounded-lg text-white font-bold text-lg h-fit transform transition-all duration-200 hover:bg-yellow-500">
           {interview.type}
         </p>
       </div>
 
+      {/* Agent Interaction Section */}
       <Agent
         userName={user?.name!}
         userId={user?.id}

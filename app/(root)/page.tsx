@@ -23,31 +23,37 @@ async function Home() {
 
   return (
     <>
-      <section className="card-cta">
+      {/* Hero Section */}
+      <section className="flex flex-col-reverse sm:flex-row items-center justify-between py-12 px-6 bg-gradient-to-r from-teal-400 to-blue-500 text-white rounded-xl shadow-lg">
         <div className="flex flex-col gap-6 max-w-lg">
-          <h2>Get Interview-Ready with AI-Powered Practice & Feedback</h2>
+          <h2 className="text-4xl font-semibold">
+            Get Interview-Ready with AI-Powered Practice & Feedback
+          </h2>
           <p className="text-lg">
-            Practice real interview questions & get instant feedback
+            Practice real interview questions & get instant feedback to boost
+            your skills.
           </p>
 
-          <Button asChild className="btn-primary max-sm:w-full">
+          <Button asChild className="btn-primary w-full sm:w-auto">
             <Link href="/interview">Start an Interview</Link>
           </Button>
         </div>
 
-        <Image
-          src="/robot.png"
-          alt="robo-dude"
-          width={400}
-          height={400}
-          className="max-sm:hidden"
-        />
+        <div className="hidden sm:block">
+          <Image
+            src="/robot.png"
+            alt="robo-dude"
+            width={400}
+            height={400}
+            className="rounded-full shadow-xl"
+          />
+        </div>
       </section>
 
-      <section className="flex flex-col gap-6 mt-8">
-        <h2>Your Interviews</h2>
-
-        <div className="interviews-section">
+      {/* Past Interviews Section */}
+      <section className="flex flex-col gap-6 mt-12">
+        <h2 className="text-3xl font-semibold text-center">Your Interviews</h2>
+        <div className="interviews-section grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {hasPastInterviews ? (
             userInterviews?.map((interview) => (
               <InterviewCard
@@ -61,15 +67,17 @@ async function Home() {
               />
             ))
           ) : (
-            <p>You haven&apos;t taken any interviews yet</p>
+            <p className="text-center text-lg text-gray-600">
+              You haven't taken any interviews yet.
+            </p>
           )}
         </div>
       </section>
 
-      <section className="flex flex-col gap-6 mt-8">
-        <h2>Take Interviews</h2>
-
-        <div className="interviews-section">
+      {/* Upcoming Interviews Section */}
+      <section className="flex flex-col gap-6 mt-12">
+        <h2 className="text-3xl font-semibold text-center">Take Interviews</h2>
+        <div className="interviews-section grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {hasUpcomingInterviews ? (
             allInterview?.map((interview) => (
               <InterviewCard
@@ -83,7 +91,9 @@ async function Home() {
               />
             ))
           ) : (
-            <p>There are no interviews available</p>
+            <p className="text-center text-lg text-gray-600">
+              There are no interviews available.
+            </p>
           )}
         </div>
       </section>
